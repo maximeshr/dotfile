@@ -1,0 +1,60 @@
+# ~/.gitconfig from @maximeshr
+
+[core]
+legacyheaders = false # >git 1.5
+quotepath = false
+# http://stackoverflow.com/questions/136178/git-diff-handling-long-lines
+pager = less -r
+# if â†‘ doesnâ€™t work, try: pager = less -+$LESS -FRX
+[color]
+ui = auto
+interactive = auto
+[repack]
+usedeltabaseoffset = true # >git 1.5
+[alias]
+st = status
+s = status
+a = !git add . && git status
+au = !git add -u . && git status
+aa = !git add . && git add -u . && git status
+c = commit
+cm = commit -m
+ca = commit --amend # careful
+create = !sh -c 'git checkout -b "$1"' -
+ac = !git add . && git commit
+acm = !git add . && git commit -m
+l = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+ll = log --stat --abbrev-commit
+d = diff --color-words
+dh = diff --color-words head
+master = checkout master
+dev = checkout develop
+pa = push origin master develop --tags
+pt = push origin --tags
+po = push origin
+pom = push origin master
+pod = push origin develop
+plom = pull origin master
+plod = pull origin develop
+plo = pull origin
+mm = !sh -c 'git checkout master && git merge --no-ff "$1"' -
+mmd = !sh -c 'git checkout master && git merge --no-ff develop' -
+md = !sh -c 'git checkout develop && git merge --no-ff "$1"' -
+mdm = !sh -c 'git checkout develop && git merge --no-ff master' -
+alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+[user]
+name = "Maxime Sahroui"
+email = "maxime.sahroui@gmail.com"
+[diff]
+# git does copy/rename *detection*. if you want it to track copies/renames:
+# http://stackoverflow.com/questions/1043388/record-file-copy-operation-with-git
+# renames = copies
+[push]
+  default = simple
+[pager]
+  diff = diff-so-fancy | less --tabs=1,5 -RFX
+  show = diff-so-fancy | less --tabs=1,5 -RFX
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
