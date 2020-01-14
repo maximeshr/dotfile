@@ -1,0 +1,23 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+  {
+    "key": "cmd+shift+w",
+    "command": "workbench.view.explorer"
+  },
+  {
+    "key": "alt+cmd+n",
+    "command": "workbench.action.files.newUntitledFile"
+  },
+  {
+    "key": "cmd+n",
+    "command": "-workbench.action.files.newUntitledFile"
+  },
+  {
+    "key": "alt+cmd+n",
+    "command": "-newFile.createNewFile"
+  },
+  {
+    "key": "cmd+n",
+    "command": "explorer.newFile"
+  }
+]
